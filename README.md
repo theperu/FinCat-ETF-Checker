@@ -9,4 +9,4 @@ Search for ETFs info from [JustETF](justetf.com)
 
 ## Video
 
-![Fincat Demostration](assets/FinCat%20-%20Video%20demostration.mp4)
+<video src="assets/FinCat - Video demostration.mp4"></video>
