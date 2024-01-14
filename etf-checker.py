@@ -33,8 +33,12 @@ def get_etf_info(hashmap: Dict[str, Dict[str, str]], key: str):
     else:
         return "No ETF found with the key: {key}"
 
+def create_hashmap_by_key(etf_data: List[Dict[str, str]], key: str) -> Dict[str, Dict[str, str]]:
+        isin_hashmap = {element[key]: element for element in etf_data}
+        return isin_hashmap
+
 @tool
-def search_etf(query, cat):
+def search_etf_by_isin(query, cat):
     """
     Search for an ETF, ETN or ETC. The input is a query
 
@@ -52,13 +56,35 @@ def search_etf(query, cat):
         },
     )
 
-    def create_hashmap_by_key(etf_data: List[Dict[str, str]], key: str) -> Dict[str, Dict[str, str]]:
-        isin_hashmap = {element[key]: element for element in etf_data}
-        return isin_hashmap
-
     if response.status_code == requests.codes.ok:
         data = response.json()["data"]
         isin_map = create_hashmap_by_key(data, "isin")
+        return get_etf_info(isin_map, query)
+    else:
+        return "There was an error while checking for the list of ETFs"
+
+@tool
+def search_etf_by_ticker(query, cat):
+    """
+    Search for an ETF, ETN or ETC. The input is a 3 to 5 letters query
+
+    For example, give me some informations about this ETF: SWRD
+    Query -> SWRD
+    """
+
+    params = "groupField=index&productGroup=epg-longOnly"
+
+    response = requests.post(
+        JUSTETF_BASE_URL,
+        {
+            **BASE_PARAMS,
+            "etfsParams": params,
+        },
+    )
+
+    if response.status_code == requests.codes.ok:
+        data = response.json()["data"]
+        isin_map = create_hashmap_by_key(data, "ticker")
         return get_etf_info(isin_map, query)
     else:
         return "There was an error while checking for the list of ETFs"
