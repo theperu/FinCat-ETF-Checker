@@ -1,4 +1,10 @@
 {
     "name": "FinCat - ETF Checker",
     "description": "Retrieves informations about ETFs from JustETF"
+    "version": "0.0.1",
+    "author_name": "Marco Perugini",
+    "author_url": "https://github.com/theperu",
+    "plugin_url": "https://github.com/theperu/FinCat-ETF-Checker",
+    "tags": "finace, ETF, investments",
+    "thumb": "https://raw.githubusercontent.com/theperu/FinCat-ETF-Checker/2c8438d16ba47956c360f0b13084c61984622a6a/assets/FinCat.png"
 }
