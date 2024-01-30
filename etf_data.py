@@ -59,20 +59,7 @@ class ETFData:
 
         result = "Here are other ETFs with the same index: \n"
         for selected_etf in sorted_etf_list:
-            result = result + f'''
-            \nETF Information:
-            
-            - Name: {selected_etf["name"]}
-            - ISIN: {selected_etf["isin"]}
-            - Ticker: {selected_etf["ticker"]}
-            - Distribution Policy: {selected_etf["distributionPolicy"]}
-            - TER: {selected_etf["ter"]}
-            - Found Currency: {selected_etf["fundCurrency"]}
-            - Inception Date: {selected_etf["inceptionDate"]}
-            - 1 Year Returns: {selected_etf["yearReturn1CUR"]}
-            - Found Size: {selected_etf["fundSize"]} mln
-            - Current Dividend Yield: {selected_etf["currentDividendYield"]}\n\n
-            '''
+            result = result + f'''- ETF Name {selected_etf["name"]}, TER: {selected_etf["ter"]}, Link: https://www.justetf.com/en/etf-profile.html?isin={selected_etf["isin"]}\n'''
         return result
     
     @staticmethod
