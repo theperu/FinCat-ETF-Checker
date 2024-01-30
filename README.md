@@ -9,8 +9,6 @@ FinCat is a plugin for the Cheshire Cat that lets retrive some information about
 
 ## Video
 
-<div align="center">
-  <video src="https://raw.githubusercontent.com/theperu/FinCat-ETF-Checker/52f38649271fddcc4e48bd71f493c3d1aaca9b7d/assets/FinCat-Video-Demostration.mp4"></video>
-</div>
+![FinCat Demostration](assets/FinCat-Video-Demostration.gif)
 
 In the GIF above you can see that I specified a couple of ISINs (I could've used also their tickers) and it provided some basic info.
